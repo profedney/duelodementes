@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Game de Perguntas e Respostas">
+    <meta name="keywords" content="HTML, JavaScript, PHP">
+    <meta name="author" content="prof. Edney Rossi">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Duelo de Mentes</title>
+</head>
+<body>
+    <h1>Jogo Duelo de Mentes</h1>
+    <div id="pergunta"></div>
+    <div id="alternativas">
+        A: <input type="radio" name="resposta" value="A"> <span id="alternativaA"></span><br>
+        B: <input type="radio" name="resposta" value="B"> <span id="alternativaB"></span><br>
+        C: <input type="radio" name="resposta" value="C"> <span id="alternativaC"></span><br>
+        D: <input type="radio" name="resposta" value="D"> <span id="alternativaD"></span><br>
+    </div>
+    <br>
+    <button id="avancar" onclick="avancarPergunta()">Avançar</button>
+    <button id="exibirResposta" onclick="exibirResposta()">Exibir Resposta</button>
+    <br>
+    <br>
+    <a href="gravar.php">cadastrar nova pergunta</a>
+    
+
+    <script>
+        let linhas = [];
+        let indicePergunta = 0;
+
+        function carregarCSV() {
+            fetch('registros.txt')
+                .then(response => response.text())
+                .then(data => {
+                    linhas = data.trim().split('\n').map(line => line.split(','));
+                    exibirPergunta();
+                });
+        }
+
+        function exibirPergunta() {
+            if (indicePergunta < linhas.length) {
+                const pergunta = linhas[indicePergunta][0];
+                const alternativaA = linhas[indicePergunta][1];
+                const alternativaB = linhas[indicePergunta][2];
+                const alternativaC = linhas[indicePergunta][3];
+                const alternativaD = linhas[indicePergunta][4];
+                const respostaCorreta = linhas[indicePergunta][5];
+
+                document.getElementById('pergunta').textContent = pergunta;
+                document.getElementById('alternativaA').textContent = alternativaA;
+                document.getElementById('alternativaB').textContent = alternativaB;
+                document.getElementById('alternativaC').textContent = alternativaC;
+                document.getElementById('alternativaD').textContent = alternativaD;
+
+                document.getElementById('resposta').textContent = `Resposta correta: ${respostaCorreta}`;
+
+                document.querySelectorAll('input[name="resposta"]').forEach(input => {
+                    input.checked = false;
+                });
+            } else {
+                document.getElementById('pergunta').textContent = 'Fim do jogo';
+                document.getElementById('alternativas').style.display = 'none';
+                document.getElementById('avancar').style.display = 'none';
+                document.getElementById('exibirResposta').style.display = 'none';
+                document.getElementById('resposta').textContent = '';
+            }
+        }
+
+        function verificarResposta() {
+            const respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
+            if (!respostaSelecionada) {
+                alert('Por favor, selecione uma resposta.');
+                return;
+            }
+        }
+
+        function avancarPergunta() {
+            verificarResposta();
+            indicePergunta++;
+            exibirPergunta();
+        }
+
+        function exibirResposta() {
+            const respostaCorreta = linhas[indicePergunta][5];
+            alert(`Resposta correta: ${respostaCorreta}`);
+        }
+
+        carregarCSV();
+    </script>
+</body>
+</html>

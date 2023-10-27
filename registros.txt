@@ -1,0 +1,11 @@
+Qual é a principal função do sistema nervoso central?, Digestão, Movimentação, Controle das funções corporais, Respiração, C
+Qual é o processo pelo qual as plantas convertem a luz solar em energia química?, Respiração, Fotossíntese, Transpiração, Germinação, B
+Qual dos seguintes elementos é um gás nobre?, Oxigênio, Nitrogênio, Hélio, Carbono, C
+Qual é a unidade básica da hereditariedade?, Proteína, Ácido nucleico, Carboidrato, Lipídeo, B
+O que é a camada de ozônio?, Uma camada de nuvens, Uma camada de gases que protege a Terra dos raios solares prejudiciais, Uma camada de água na atmosfera, Uma camada de gelo no Polo Norte, B
+Qual é a força que atrai dois objetos com massa?, Força centrífuga, Gravidade, Força magnética, Força elástica, B
+Qual das seguintes substâncias é considerada ácida em solução aquosa?, Água pura, Limão, Leite, Café, B
+Qual é a principal função do sistema respiratório?, Bombear sangue para todo o corpo, Filtrar resíduos do sangue, Trocar oxigênio e dióxido de carbono com o ambiente, Produzir insulina, C
+Qual é a maior lua de Júpiter?, Titã, Deimos, Ganímedes, Lua, C
+O que é um ecossistema?, Um conjunto de parques ecológicos, Um ambiente artificial criado pelo homem, Um conjunto de seres vivos e seu ambiente físico, Uma organização de conservação ambiental, C
+Qual a principal linguagem de programação usada no Arduino?, C/C++, Python, Java, PHP, A
